@@ -1,7 +1,9 @@
 ### short term todo
+- add duplicate xy message cleanup
+- convert loops to more efficient (and easily reference-able data structure)
+    - improve memory performance, remove null-access errors from JSON obj
 - add non looping triggering (destroy on end)
 - add loop stopping/removal methods
-- add duplicate xy message cleanup
 - add "clean looping" cleanup in JS
 - show live mouse/pen position
 - fix path interpolation logic so slowed-down gestures are smoother
