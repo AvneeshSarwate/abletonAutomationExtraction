@@ -1,11 +1,18 @@
+### bugs
+- some kind of flickering on some loops
+- crash in C++ when updating loop-store and loops running
+
 ### short term todo
-- convert loops to more efficient (and easily reference-able data structure)
+- convert loops to more efficient (and easily reference-able) data structure
     - improve memory performance, remove null-access errors from JSON obj
 - add non looping triggering (destroy on end)
 - add loop stopping/removal methods
 - add "clean looping" cleanup in JS
 - show live mouse/pen position
 
+### c++ unknowns
+- interfaces (for composite gesture objects)
+- appropriate/efficient storage structures for querying 
 
 ### longer term todo - (don't overdo it - make actual art)
 - add simple static loop drawing via p5 in browser (to help debug)
