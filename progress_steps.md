@@ -1,12 +1,11 @@
 ### short term todo
-- add duplicate xy message cleanup
 - convert loops to more efficient (and easily reference-able data structure)
     - improve memory performance, remove null-access errors from JSON obj
 - add non looping triggering (destroy on end)
 - add loop stopping/removal methods
 - add "clean looping" cleanup in JS
 - show live mouse/pen position
-- fix path interpolation logic so slowed-down gestures are smoother
+
 
 ### longer term todo - (don't overdo it - make actual art)
 - add simple static loop drawing via p5 in browser (to help debug)
@@ -29,6 +28,9 @@
 - port loop manager to c++
     - add noramlized time playback
 - add basic loop triggering
+- add duplicate xy message cleanup
+- fix path interpolation logic so slowed-down gestures are smoother
+- add delta motion for infinite smooth moving (works with normed duration)
 
 
 
