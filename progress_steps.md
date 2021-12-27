@@ -1,7 +1,3 @@
-### bugs
-- some kind of flickering on some loops
-- crash in C++ when updating loop-store and loops running
-
 ### short term todo
 - convert loops to more efficient (and easily reference-able) data structure
     - improve memory performance, remove null-access errors from JSON obj
@@ -25,6 +21,11 @@
 - add gesture "composition" primitives
     - lerp
     - yank/deviation (either live or with gesture)
+- add pausability to gestures
+    - feed in currentTime/lastTime from outer draw loop so all gestures update to same timestep
+    - increase gesture age by incrementing with a delta
+    - potential API - step() a gesture with a time delta, let it internally calculate 
+      it's own phase delta based on its duration
 
 
 ### done todo 
@@ -54,3 +55,7 @@
 - can take references of existing gesture instances, so multiple composites can share motion
     - e.g, multiple "launchers" on the same "track" 
 - could manage lifecycles of their emitted child gestures
+### fixed bugs
+- some kind of flickering on some loops
+- crash in C++ when updating loop-store and loops running
+
