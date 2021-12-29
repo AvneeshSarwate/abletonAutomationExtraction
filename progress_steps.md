@@ -4,6 +4,7 @@
 - show live mouse/pen position
 - add loop removal by group name
 
+
 ### "creative-driven" feature roadmap (roughly priotity order)
 - add affine transforms for loops (priority: rotate, reflect, scale)
     - set them at launch time rather than clean-up time, because 
@@ -17,12 +18,15 @@
     - determine how this would work with composites 
     - (they also have group id, and a yank(delta) method that could be a no-op)
 - think of 80/20 api for group-id/ensemble steering
-
+- interactions between gestures for emergent complexity
+    - e.g - 2 gesture trails, trail head turns 90 degrees to avoid intersecting when 
+      within a certain distance of the other trail
 
 
 ### c++ unknowns
 - interfaces (for composite gesture objects)
 - appropriate/efficient storage structures for querying 
+
 
 ### longer term todo - (don't overdo it - make actual art)
 - add simple static loop drawing via p5 in browser (to help debug)
@@ -78,9 +82,12 @@
 - can take references of existing gesture instances, so multiple composites can share motion
     - e.g, multiple "launchers" on the same "track" 
 - could manage lifecycles of their emitted child gestures
+
+
 ### fixed bugs
 - some kind of flickering on some loops
 - crash in C++ when updating loop-store and loops running
+
 
 ### touchOSC bugs
 - duplicate UDP message (happens with old touchOSC too - mac bug?)
