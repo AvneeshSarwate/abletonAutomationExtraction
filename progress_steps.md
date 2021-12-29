@@ -82,3 +82,7 @@
 - some kind of flickering on some loops
 - crash in C++ when updating loop-store and loops running
 
+### touchOSC bugs
+- duplicate UDP message (happens with old touchOSC too - mac bug?)
+- Android doesn't encode TCP-OSC correctly
+- eventual slowdown when sending TCP-OSC for long XY gestures
