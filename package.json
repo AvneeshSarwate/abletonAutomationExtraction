@@ -1,6 +1,12 @@
 {
   "dependencies": {
     "express": "^4.17.2",
-    "osc": "^2.4.2"
+    "osc": "^2.4.2",
+    "p5": "^1.4.0",
+    "ws": "^8.4.0"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.5",
+    "utf-8-validate": "^5.0.7"
   }
 }

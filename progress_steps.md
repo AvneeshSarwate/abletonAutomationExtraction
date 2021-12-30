@@ -3,6 +3,7 @@
 - add "clean looping" cleanup in JS
 - show live mouse/pen position
 - add loop removal by group name
+- add button to clear all loops
 
 
 ### "creative-driven" feature roadmap (roughly priotity order)
