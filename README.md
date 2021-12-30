@@ -7,3 +7,6 @@ very not finished atm.
 
 
 js_server.ipynb is meant to work with https://github.com/n-riesco/ijavascript and connects to https://github.com/AvneeshSarwate/gestureLoopsOF
+
+
+for creative sketches with synced snapshots to https://github.com/AvneeshSarwate/gestureLoopsOF, look for commits in both repositiories named "checkpoint: {SKECH_NAME}"
