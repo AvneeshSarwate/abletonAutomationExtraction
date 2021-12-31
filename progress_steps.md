@@ -4,6 +4,9 @@
 - show live mouse/pen position
 - add loop removal by group name
 - add button to clear all loops
+- add mechanism for sending a "launch-config" with json
+    - base case - simple gestures
+    - extension- for composite gestures
 
 
 ### "creative-driven" feature roadmap (roughly priotity order)
