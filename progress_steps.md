@@ -1,8 +1,7 @@
 ### short-term/"core" todo
+- add time-stamped messages for use in slow-network situations (either OSC timestamps or custom websocket UI)
 - add non looping triggering (destroy on end)
-- add "clean looping" cleanup in JS
 - show live mouse/pen position
-- add loop removal by group name
 - add button to clear all loops
 - add mechanism for sending a "launch-config" with json
     - base case - simple gestures
@@ -64,6 +63,7 @@
 - convert loops to more efficient (and easily reference-able) data structure
     - improve memory performance, remove null-access errors from JSON obj
 - add basic loop stopping/removal methods
+- add "clean looping" cleanup in JS
 
 
 #### steering API ideas
