@@ -1,11 +1,11 @@
 ### short-term/"core" todo
-- add time-stamped messages for use in slow-network situations (either OSC timestamps or custom websocket UI)
 - add non looping triggering (destroy on end)
+- add rotation property to gestures
 - show live mouse/pen position
 - add button to clear all loops
-- add mechanism for sending a "launch-config" with json
-    - base case - simple gestures
-    - extension- for composite gestures
+- create 2 super simple composite object
+- add json launch-config format for composite gestures
+    - be able to cleanly handle multiple types of composite objects
 
 
 ### "creative-driven" feature roadmap (roughly priotity order)
@@ -64,6 +64,8 @@
     - improve memory performance, remove null-access errors from JSON obj
 - add basic loop stopping/removal methods
 - add "clean looping" cleanup in JS
+- add time-stamped messages for use in slow-network situations (either OSC timestamps or custom websocket UI)
+- add mechanism for sending a "launch-config" with json (for basic groups of gestures, no composites yet)
 
 
 #### steering API ideas
