@@ -1,7 +1,7 @@
 ### short-term/"core" todo
 - add non looping triggering (destroy on end)
 - add button to clear all loops
-- create 2 super simple composite object
+- create 2 super simple composite objects
 - add json launch-config format for composite gestures
     - be able to cleanly handle multiple types of composite objects
 - add a scheme for sending OSC messages to individual composite gesture instances
