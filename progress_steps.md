@@ -4,6 +4,11 @@
 - create 2 super simple composite object
 - add json launch-config format for composite gestures
     - be able to cleanly handle multiple types of composite objects
+- add a scheme for sending OSC messages to individual composite gesture instances
+    - turn voronoi rendering into a composite gesture, with a 
+      param-per-instance of grid size controllable via OSC
+    - turn loop lerping into composite, with lerp value by OSC
+- add deleting by key/group/loopKey
 
 
 ### "creative-driven" feature roadmap (roughly priotity order)
