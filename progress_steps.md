@@ -1,7 +1,5 @@
 ### short-term/"core" todo
 - add non looping triggering (destroy on end)
-- add rotation property to gestures
-- show live mouse/pen position
 - add button to clear all loops
 - create 2 super simple composite object
 - add json launch-config format for composite gestures
@@ -66,6 +64,8 @@
 - add "clean looping" cleanup in JS
 - add time-stamped messages for use in slow-network situations (either OSC timestamps or custom websocket UI)
 - add mechanism for sending a "launch-config" with json (for basic groups of gestures, no composites yet)
+- add rotation property to gestures
+- show live mouse/pen position
 
 
 #### steering API ideas
