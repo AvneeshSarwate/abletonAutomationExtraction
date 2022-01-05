@@ -1,5 +1,4 @@
 ### short-term/"core" todo
-- add non looping triggering (destroy on end)
 - add button to clear all loops
 - create 2 super simple composite objects
 - add json launch-config format for composite gestures
@@ -7,9 +6,25 @@
 - add a scheme for sending OSC messages to individual composite gesture instances
     - turn voronoi rendering into a composite gesture, with a 
       param-per-instance of grid size controllable via OSC
-    - turn loop lerping into composite, with lerp value by OSC
+    - turn launching gestures from a gesture-track into a composite gesture,
+      with the track position/phase an OSC param
 - add deleting by key/group/loopKey
 
+
+### Scaling individual OF sketches into a whole set 
+- For sketching, have multiple ofApp{123} in the same project, but just switch 
+  up which one gets called in main.cpp
+    - Have the drawing happening in a single function (realDraw) that returns a 
+      texture, and the draw() function just calls that 
+- Namespace the osc messages sent from js to the apps so when combining c++ code later, there’s no issues 
+- When combining sketches into a single app for a live set, 
+  just copy the realDraw/update functions and class variables into a new app
+- How to deal with class variables with the same name across sketches? 
+  Just rename them with subscripts _123 before copying? 
+- Can you call multiple ofApps in a wrapper app? Would solve class variable naming problem 
+- Might need a way to indicate the TCP socket over which to send “global” 
+  information, and also figure out name spacing for tcp sockets for gesture launches 
+    - Clients could send their “name” to js upon instantiating, and JS keeps a name/socket map 
 
 ### "creative-driven" feature roadmap (roughly priotity order)
 - add affine transforms for loops (priority: rotate, reflect, scale)
@@ -52,6 +67,15 @@
       it's own phase delta based on its duration
 
 
+### using gestures to control other systems
+- shaders+feedback - driving brushes, driving positional feedback displacement
+- physics (ofxBox2D, ofxLiquidFun)
+- particle systems
+    - attraction (gravity/spring), dragging/accumulation
+    - arrangement across/between gesture points
+- displacement/optical flow (ofxFlowTools)
+- actual painting (ofxInkSim, ofxOilPaint)
+
 ### done todo 
 - move loop recording into node server
 - add tcp socket connection from c++ to node 
@@ -71,6 +95,7 @@
 - add mechanism for sending a "launch-config" with json (for basic groups of gestures, no composites yet)
 - add rotation property to gestures
 - show live mouse/pen position
+- add non looping triggering (destroy on end)
 
 
 #### steering API ideas
