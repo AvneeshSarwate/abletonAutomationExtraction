@@ -96,6 +96,7 @@
 - add rotation property to gestures
 - show live mouse/pen position
 - add non looping triggering (destroy on end)
+- Move drawing to draw into framebuffer, and add basics of namespacing OSC messages by sketch
 
 
 #### steering API ideas
