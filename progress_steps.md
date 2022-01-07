@@ -26,13 +26,27 @@
   information, and also figure out name spacing for tcp sockets for gesture launches 
     - Clients could send their “name” to js upon instantiating, and JS keeps a name/socket map 
 
+
+
+### creating UIs for sketch params and making ableton mapping easy
+- automatically generate buttons/sliders, etc based on OSC handlers set
+    - scope/name them by sketch name
+    - make sure they can run in a mobile browser for jamming
+- figure out how to map these into ableton to quickly record triggers/sliders
+- see if you can use JS introspection to generate buttons from functions quickly?
+- use livecoding to quickly insert buttons for functions on the fly without UI refresh?
 ### "creative-driven" feature roadmap (roughly priotity order)
+- create first composite gesture instance - loop addition
+    - can get lots of milage of complex ensemble motion with this
+- figure out how to use lambdas and "push/pop" style transformations to create a sort of
+  "granular post processing" set of transformations on drawn things
+    - e.g, can draw something, but just slap OF transform functions (rotate/scale/color)
+      or even shaders (vertex, fragment, geom) to change how a thing is rendered with no
+      knowledge of what it actuall is
 - add affine transforms for loops (priority: rotate, reflect, scale)
     - set them at launch time rather than clean-up time, because 
       this is necessary for quickly triggering ensemble launches
     - can simply apply the transform to the delta at each step?
-- create first composite gesture instance - loop addition
-    - can get lots of milage of complex ensemble motion with this
 - initialize with non-0 phase
     - very useful for ensemble launching
 - live-mouse "yank" by group id
@@ -60,7 +74,7 @@
 - add gesture "composition" primitives
     - lerp
     - yank/deviation (either live or with gesture)
-- add pausability to gestures
+- (DONE) add pausability to gestures
     - feed in currentTime/lastTime from outer draw loop so all gestures update to same timestep
     - increase gesture age by incrementing with a delta
     - potential API - step() a gesture with a time delta, let it internally calculate 
@@ -97,6 +111,7 @@
 - show live mouse/pen position
 - add non looping triggering (destroy on end)
 - Move drawing to draw into framebuffer, and add basics of namespacing OSC messages by sketch
+- add pausability to gestures (sending a wall-clock delta to step() for each gesture)
 
 
 #### steering API ideas
