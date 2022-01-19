@@ -9,6 +9,10 @@
     - turn launching gestures from a gesture-track into a composite gesture,
       with the track position/phase an OSC param
 - add deleting by key/group/loopKey
+  - implementation with single pass and minimal implementation complexity
+    - have sets for ids/groups/loopkeys to be erased - these get added to when an erase message comes in 
+    - on the clean up iteration, check if loops properties are in ids/groups/loopkeys to be erased
+    - check if there would be OSC-threading issues. can send over TCP if so 
 
 
 ### Scaling individual OF sketches into a whole set 
