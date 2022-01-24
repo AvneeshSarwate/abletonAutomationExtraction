@@ -2,12 +2,27 @@
 
 (
 MIDIIn.connectAll;
-
+~iPad = MIDIClient.sources.select({|elem| (elem.name == "iPad") && (elem.device == "neeshPad")})[0];
 ~logs = [];
 ~clock = TempoClock.new;
 ~values = Dictionary.new;
 ~c0 = CC14.new(0, 32, 0, true, true);
 ~gotNewValues = false;
+
+~midiOn = MIDIFunc.noteOn({|vel, note, chan, port|
+   if(note == 60, {
+		"touch started".postln;
+		~oscOut.sendMsg("/pos/touch", 1);
+	});
+}, nil, nil, ~iPad.uid);
+
+~midiOff = MIDIFunc.noteOff({|vel, note, chan, port|
+	if(note == 60, {
+		"touch ended".postln;
+		~oscOut.sendMsg("/pos/touch", 0);
+	});
+}, nil, nil, ~iPad.uid);
+
 
 ~logVal = {|name, val, chan, cc1, cc2|
 	"%-Received %: %, cc1: %, cc2: %, chan: %".format(cc1, name, val, cc1, cc2, chan).postln;
@@ -51,6 +66,7 @@ MIDIIn.connectAll;
 	{
 		if(~gotNewValues && ~hasAllValues.(~values), {
 			~oscOut.sendMsg("/pos", ~values["x"], ~values["y"], ~clock.beats*1000, ~values["force"], ~values["azimuth"]);
+			~gotNewValues = false;
 		});
 		(1/100).wait;
 	}.loop;
