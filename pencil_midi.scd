@@ -3,25 +3,41 @@
 (
 MIDIIn.connectAll;
 ~iPad = MIDIClient.sources.select({|elem| (elem.name == "iPad") && (elem.device == "neeshPad")})[0];
+~touchOSCBridge = MIDIClient.sources.select({|elem| (elem.name == "TouchOSC Bridge") && (elem.device == "TouchOSC Bridge")})[0];
+
 ~logs = [];
 ~clock = TempoClock.new;
 ~values = Dictionary.new;
 ~c0 = CC14.new(0, 32, 0, true, true);
 ~gotNewValues = false;
 
-~midiOn = MIDIFunc.noteOn({|vel, note, chan, port|
+~ipadOn = MIDIFunc.noteOn({|vel, note, chan, port|
    if(note == 60, {
-		"touch started".postln;
+		"touch ipad started".postln;
 		~oscOut.sendMsg("/pos/touch", 1);
 	});
 }, nil, nil, ~iPad.uid);
 
-~midiOff = MIDIFunc.noteOff({|vel, note, chan, port|
+~ipadOff = MIDIFunc.noteOff({|vel, note, chan, port|
 	if(note == 60, {
-		"touch ended".postln;
+		"touch ipad ended".postln;
 		~oscOut.sendMsg("/pos/touch", 0);
 	});
 }, nil, nil, ~iPad.uid);
+
+~touchOSCOn = MIDIFunc.noteOn({|vel, note, chan, port|
+   if(note == 60, {
+		"touch osc started".postln;
+		~oscOut.sendMsg("/recording", 1);
+	});
+}, nil, nil, ~touchOSCBridge.uid);
+
+~touchOSCOff = MIDIFunc.noteOff({|vel, note, chan, port|
+	if(note == 60, {
+		"touch osc ended".postln;
+		~oscOut.sendMsg("/recording", 0);
+	});
+}, nil, nil, ~touchOSCBridge.uid);
 
 
 ~logVal = {|name, val, chan, cc1, cc2|
