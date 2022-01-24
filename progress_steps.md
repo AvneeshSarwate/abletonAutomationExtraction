@@ -31,6 +31,22 @@
     - Clients could send their “name” to js upon instantiating, and JS keeps a name/socket map 
 
 
+### scheme for making draw functions for individual gestures live-codeable with lua
+- push all OSC values into a map, and inject that map into the script
+  - v0 - only 2 value per message, for a position-xy, need a "/pos_x" and "/pos_y" address
+- only instantiate one script, and only call the "draw" function from openFrameworks
+  - but before you call draw, you can push the name of the function the draw function will call
+  - have a name->function map in the script, and the draw function calls whatever value is set
+    on the global "function to call" variable
+- "arguments" of these inner functions will be set as global vars in the script before the call from OF
+  - this is kind of like how openGL api works
+- overall, a bit convoluted, but has the same level of "fixedness" as making an ofxLua -> lua func binding
+  like make for the ofApp functions, and is more "portable" between sketches 
+- need to set up hot-reloading for the one main script
+- TODO - how to use a hot-reloading shader inside the lua script?
+  - try passing in an AutoReloadingShader object and see if bindings work
+  - set up auto reload in c++ on a normal ofShader object and pass it in
+  - create shader and auto reload all in lua 
 
 ### creating UIs for sketch params and making ableton mapping easy
 - automatically generate buttons/sliders, etc based on OSC handlers set
