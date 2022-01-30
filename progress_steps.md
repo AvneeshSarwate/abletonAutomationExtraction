@@ -30,6 +30,14 @@
   information, and also figure out name spacing for tcp sockets for gesture launches 
     - Clients could send their “name” to js upon instantiating, and JS keeps a name/socket map 
 
+### scheme for remapable and ableton-recordable controllers
+come up with a way to map touchOSC sliders to OSC addresses from JS (and also record into ableton)
+touchOSC always sends "/param-i", js bounces it to a param name, and the remapping function in js bounces the names to labels under the sliders in touchOSC
+can also set up 14 bit midi bounce to ableton 
+JS bouncer sends osc message to Max, which bounces to ableton via xctlout object
+(see dynalist)
+
+
 
 ### scheme for making draw functions for individual gestures live-codeable with lua
 - push all OSC values into a map, and inject that map into the script
